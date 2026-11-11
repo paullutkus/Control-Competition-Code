@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+.venv/
+data/
+
+# LaTeX build files (keep .tex sources and compiled PDFs)
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.bcf
+*.run.xml
