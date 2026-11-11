@@ -1,4 +1,4 @@
-# Flexible-arm data for the stability competition
+# Flexible-arm data for competition
 
 This is a small port of the flexible arm and the two controllers in the motivating
 example of *Learning Stabilizing Latent Feedback Controllers via Multi-Step
