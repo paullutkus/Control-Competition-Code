@@ -28,7 +28,7 @@ equilibrium, run:
 python generate_data.py --plant linear --controller both --output data/linear
 ```
 
-`stable` uses the model learned with the multi-step backward loss; `unstable`
+`stable` uses the model learned with the multi-step backward loss, and `unstable`
 uses the model learned with the decoder-free forward loss. Both apply the linear
 feedback law from the motivating example, `u = K J_E(0) x`, with physical torque
 clipped to ±40 N m and held between samples. Recomputing the unsaturated
@@ -67,12 +67,12 @@ Scalar metadata records `controller`, `plant`, `dt`, `u_scale`, `torque_limit`,
 `u_scale` approximately 2.13635, so the discrete input matrix has Euclidean norm 1.
 
 For the non-linear plant, a trajectory stops at the first sampled state where
-any section is more than 90 degrees from upright. That state is retained;
+any section is more than 90 degrees from upright.
 the model has no ground-contact dynamics. An initial state already beyond this
 angle has length zero. The linear plant has no angle cutoff. A numerical
 failure retains only the preceding valid states. Entries after each valid
 prefix are `NaN`, including unused inputs. Never treat that padding as data.
-`completed` means the requested observation window ended; it does not establish
+`completed` means the requested observation window ended -- it does not establish
 stability. The command returns a nonzero exit status if a numerical failure occurs.
 
 ## Python interface
@@ -93,8 +93,8 @@ next_x = arm.step(x, u)                           # non-linear; one 0.05 s perio
 next_x_linear = arm.step(x, u, plant="linear")
 ```
 
-`arm.A` and `arm.B` give the normalized discrete linearization;
-`arm.centerline(q)` returns the section endpoint coordinates in metres.
+`arm.A` and `arm.B` give the normalized discrete linearization, and
+`arm.centerline(q)` returns the section endpoint coordinates in meters.
 `arm.step` also accepts batches of states `(N, 40)` and inputs `(N, 1)`.
 It does not clip the input or stop on a fall. `generate_data` applies those rules.
 
@@ -133,7 +133,7 @@ closed-loop behavior, torque units and saturation, and saved-data boundaries.
 The port was also checked directly against the source simulator.
 
 `system_description.tex` is a standalone description of the mechanics,
-controllers, and implementation; `system_description.pdf` is its compiled form.
+controllers, and implementation.
 To rebuild it:
 
 ```bash
