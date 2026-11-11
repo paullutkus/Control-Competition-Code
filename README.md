@@ -2,7 +2,7 @@
 
 This is a small port of the flexible arm and the two controllers in the motivating
 example of *Learning Stabilizing Latent Feedback Controllers via Multi-Step
-Backward Losses*. It generates full-state trajectories of the 40-dimensional arm
+Backward Losses* (https://arxiv.org/abs/2610.40931). It generates full-state trajectories of the 40-dimensional arm
 under either controller. The trained feedback matrices are included.
 
 Use Python 3.10 or later:
